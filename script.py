@@ -19,9 +19,9 @@ def find_files(token, channel=None, number_of_files_to_print=5):
 
     b.sort(key=lambda x: int(x.get('size')))
     for i in b[-1*number_of_files_to_print:]:
-        print("%s (%.2fMB)" % (i.get("permalink"), int(i.get("size")) / (1000 * 1000)))
+        print("%s (%.2fMB)" % (i.get("permalink"), int(i.get("size")) / (1024.0 * 1024)))
 
-    print("Total size in public files is %.2fMB" % (sum(map((lambda x: int(x.get("size"))), b)) / (1000 * 1000)))
+    print("Total size in public files is %.2fMB" % (sum(map((lambda x: int(x.get("size"))), b)) / (1024.0 * 1024)))
 
 
 if __name__ == "__main__":
